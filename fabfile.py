@@ -1,6 +1,9 @@
 from fabric.api import local
 import os
 
+def start():
+    local('heroku local web')
+
 def env():
     local('heroku config:set DJANGO_SETTINGS_MODULE=todo.settings.production')
 
