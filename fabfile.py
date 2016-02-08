@@ -1,6 +1,9 @@
 from fabric.api import local
 import os
 
+def log():
+    local('heroku logs')
+
 def untrack():
     local('git add -A')
 
