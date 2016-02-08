@@ -1,6 +1,12 @@
 from fabric.api import local
 import os
 
+def data():
+    local('heroku pg:push django_todo --app my-asana DATABASE')
+
+def reset():
+    local('heroku pg:reset DATABASE')
+
 def collect():
     local('heroku run python src/manage.py collectstatic --noinput')
 
