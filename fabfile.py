@@ -1,6 +1,9 @@
 from fabric.api import local
 import os
 
+def collect():
+    local('heroku run python src/manage.py collectstatic --noinput')
+
 def start():
     local('heroku local web')
 
