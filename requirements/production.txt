@@ -3,5 +3,6 @@
 # Extra stuff required for production like Prod Database interfacing packages
 psycopg2
 dj-database-url
-
+django-storages
+boto
 
