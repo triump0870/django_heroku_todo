@@ -4,4 +4,4 @@ psycopg2
 dj-database-url
 django-storages
 boto
-
+dj-static>=0.0.6
