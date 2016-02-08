@@ -39,6 +39,7 @@ def runserver():
     local('python src/manage.py runserver 0.0.0.0:8000')
 
 def aws():
+    local('git status')
     local('git add .')
     comment = raw_input("Enter the commit comment: ")
     local('git commit -m "%s"'%comment)
