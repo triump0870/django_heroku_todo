@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% load thumbnail %}
+
+{% block title %}{{ block.super }}Task Detail{% endblock %}
+{% block container %}
+<div class="jumbotron">
+<div class="container">
+  <h1 class="text-primary">{{task.title}}</h1>
+  <hr>
+  <div class="row">
+  </div>
+  {{task.description}}
+  </div>
+</div>
+  {% endblock %}

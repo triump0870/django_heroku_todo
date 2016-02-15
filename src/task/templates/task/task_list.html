@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% load thumbnail %}
+
+{% block title %}{{ block.super }}Task List{% endblock %}
+{% block navbar-left %}
+  {% include "_navbar.html" with active_link="about" %}
+{% endblock %}
+
+{% block navbar-right %}
+  {% if not user.is_authenticated %}
+<a class="btn btn-default" href="{% url 'accounts:login' %}" role="button">Log in</a>
+<a class="btn btn-primary" href="{% url 'accounts:signup' %}" role="button">Sign up</a>
+  {% else %}
+    {{ block.super }}
+  {% endif %}
+{% endblock %}
+
+{% block splash %}
+  <div class="jumbotron text-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-8">
+          <h1>{% include "_brandname.html" %}</h1>
+          <p>Awesome App</p>
+    <a class="btn btn-primary" href="{% url 'accounts:signup' %}" role="button">Sign up for Free!</a>
+        </div>
+        <div class="col-md-4 col-sm-4">
+
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock splash %}
+
+{% block container %}
+
+<div class="container">
+  <h1 class="text-primary">Task List</h1>
+  <hr>
+  <div class="row">
+  </div>
+  {% for task in tasks %}
+  <p>
+  <span>
+  <a href="{{ task.get_absolute_url }}">{{task.title}}</a>
+  --- {{task.deadline}}
+  </span>
+  <p>
+  {%endfor%}
+  </div>
+  {% endblock %}
