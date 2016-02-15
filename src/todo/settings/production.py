@@ -2,6 +2,7 @@
 #    DJANGO_SETTINGS_MODULE=todo.settings.production
 from .base import *             # NOQA
 import logging.config
+import dj_database_url
 
 # For security and performance reasons, DEBUG is turned off
 DEBUG = False
@@ -26,6 +27,9 @@ STATIC_ROOT = join(BASE_DIR, '..', 'site', 'static')
 
 # Log everything to the logs directory at the top
 LOGFILE_ROOT = join(dirname(BASE_DIR), 'logs')
+
+# Production database sesttings
+DATABASES['default'] = dj_database_url.config(conn_max_age=500)
 
 # Reset logging
 LOGGING_CONFIG = None
