@@ -29,7 +29,8 @@ STATIC_ROOT = join(BASE_DIR, '..', 'site', 'static')
 LOGFILE_ROOT = join(dirname(BASE_DIR), 'logs')
 
 # Production database sesttings
-DATABASES['default'] = dj_database_url.config(conn_max_age=500)
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Reset logging
 LOGGING_CONFIG = None
