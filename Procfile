@@ -1,1 +1,1 @@
-web: python src/manage.py runserver 0.0.0.0:$PORT --noreload
+web: gunicorn --env DJANGO_SETTINGS_MODULE=todo.settings.production --chdir src/ todo.wsgi
